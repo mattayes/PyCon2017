@@ -7,6 +7,18 @@ class Class(object):
     Implement this class to make the test pass
     Hint: keep running the test!
     """
+    def __init__(self, s):
+        self.s = s
+
+    def generator(self, j):
+        """Yields the string (s) j times."""
+        for _ in range(j):
+            yield self.s
+
+    def __call__(self, i):
+        """Yeilds self.generator i times."""
+        for _ in range(i):
+            yield self.generator
 
 
 class Test(unittest.TestCase):
